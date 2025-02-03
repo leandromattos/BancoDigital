@@ -4,8 +4,10 @@ Ela permite a criação e consulta de contas bancárias, bem como operações de
 A API também permite consultar o histórico de transações e gerar relatório com o total de depósitos e total de saques realizados.
 
 ## Configurações iniciais:
-Requisitos: Docker Desktop  
-[Download](https://www.docker.com/products/docker-desktop)
+__Requisitos:__
+- Versão .NET: 8.0 - [Download](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+
+- Docker Desktop - [Download](https://www.docker.com/products/docker-desktop)
 
 ## Executando a aplicação:
 1. Inicie o Docker Desktop(no modo Administrador).
