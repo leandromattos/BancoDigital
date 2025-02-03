@@ -1,0 +1,48 @@
+services:
+  banco-digital-api:
+    image: banco-digital-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      banco-digital-db:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:8080
+      - DB_HOST=banco-digital-db  # Definindo o host, dependendo de qual ambiente estiver rodando (Docker=banco-digital-db local=localhost)
+    #volumes:
+    #  - ./entrypoint.sh:/entrypoint.sh
+    #command:
+    #  - /bin/bash
+    #  - /entrypoint.sh
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - -f
+        - http://localhost:8080/health
+      interval: 10s
+      retries: 3
+  banco-digital-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: BancoDigitalDB
+    ports:
+      - 5432:5432
+    volumes:
+      - banco-digital-data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U ${POSTGRES_USER}
+      interval: 10s
+      retries: 5
+volumes:
+  banco-digital-data: null
