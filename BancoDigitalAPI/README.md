@@ -12,8 +12,9 @@ Requisitos: Docker Desktop
 2. Clone o repositório do projeto:  
 Url: https://github.com/leandromattos/BancoDigitalAPI
 3. Accesse a pasta onde projeto foi clonado.
-4. Execute o arquivo __start-docker.bat__ na pasta do projeto.  
-*__Obs.:__ Com isso o docker irá criar o container, criar o banco de dados e executar a aplicação.  
+4. Execute o arquivo __start-docker.bat__ na pasta raiz da solução.    
+``./BancoDigital/start-docker.bat``  
+*__Obs.:__ Com isso o script irá configurar o cenário, irá criar o container, banco de dados e executar a aplicação.  
 Caso API não esteja funcional, acesse o diretório do projeto através do powerShell e verifique o log através do comando: ``docker logs bancodigitalapi-banco-digital-api-1``.
 Provavelmente pode ser alguma variável de sistema não configurada.*
 8. As credenciais de acesso, estão no arquivo __.env__ na raiz do projeto.
