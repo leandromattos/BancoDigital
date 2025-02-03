@@ -2,6 +2,38 @@
     [string]$SolutionPath = $(Get-Location)  # Define o caminho do projeto como padrão
 )
 
+# Verificar se o .NET SDK está instalado e sua versão
+$dotnetVersion = dotnet --version 2>$null
+
+if (-not $dotnetVersion) {
+    Write-Host "❌ .NET SDK não encontrado. Instale o .NET SDK 8.0 ou superior:" -ForegroundColor Red
+    Write-Host "🔗 https://dotnet.microsoft.com/en-us/download/dotnet/8.0"
+    exit 1
+}
+
+# Comparar versão instalada com 8.0
+$minVersion = [System.Version]"8.0.0"
+$installedVersion = [System.Version]$dotnetVersion
+
+if ($installedVersion -lt $minVersion) {
+    Write-Host "❌ Versão do .NET SDK insuficiente ($dotnetVersion). Instale o .NET SDK 8.0 ou superior:" -ForegroundColor Red
+    Write-Host "🔗 https://dotnet.microsoft.com/en-us/download/dotnet/8.0"
+    exit 1
+}
+
+Write-Host "✅ .NET SDK versão $dotnetVersion está instalado." -ForegroundColor Green
+
+# Verifica se o dotnet está disponível no PATH
+$dotnetPath = (Get-Command dotnet -ErrorAction SilentlyContinue).Source
+
+if ($dotnetPath) {
+    Write-Host "✔ O .NET SDK está configurado no PATH: $dotnetPath" -ForegroundColor Green
+} else {
+    Write-Host "❌ PATH dotnet(variaveis de ambiente) não existe, adicionando..." -ForegroundColor yellow
+    [System.Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\dotnet", [System.EnvironmentVariableTarget]::Machine)
+    Write-Host "✅ Adicionado PATH dotnet(variaveis de ambiente)" -ForegroundColor Green
+}
+
 Write-Host "=> Diretório da solução: $SolutionPath" -ForegroundColor yellow
 
 # Verifica se o arquivo .sln existe no diretório

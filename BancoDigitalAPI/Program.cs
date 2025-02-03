@@ -5,11 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using DotNetEnv;
-using FluentValidation.AspNetCore;
 using BancoDigitalAPI.Validators;
 using FluentValidation;
-using System;
-using System.IO;
 using System.Reflection;
 
 namespace BancoDigitalAPI
