@@ -10,8 +10,8 @@ Requisitos: Docker Desktop
 ## Executando a aplicação:
 1. Inicie o Docker Desktop(no modo Administrador).
 2. Clone o repositório do projeto:  
-Url: https://github.com/leandromattos/BancoDigitalAPI
-3. Accesse a pasta onde projeto foi clonado.
+Url: https://github.com/leandromattos/BancoDigital
+3. Accesse a pasta onde o projeto foi clonado.
 4. Execute o arquivo __start-docker.bat__ na pasta raiz da solução.    
 ``./BancoDigital/start-docker.bat``  
 *__Obs.:__ Com isso o script irá configurar o cenário, irá criar o container, banco de dados e executar a aplicação.  
