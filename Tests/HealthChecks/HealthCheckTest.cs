@@ -1,8 +1,4 @@
-﻿using DotNetEnv;
-using Microsoft.AspNetCore.Mvc.Testing;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Xunit;
+﻿using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace BancoDigital.Tests
 {
@@ -14,7 +10,6 @@ namespace BancoDigital.Tests
         {
             // Inicializa o HttpClient para fazer requisições para a API
             _client = factory.CreateClient();
-            Env.Load();
         }
 
         [Fact]

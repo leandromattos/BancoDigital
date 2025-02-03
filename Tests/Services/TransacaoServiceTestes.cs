@@ -4,10 +4,6 @@ using BancoDigitalAPI.Repositories;
 using BancoDigitalAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Xunit;
 
 namespace Testes.Services
 {
