@@ -9,9 +9,6 @@ if ($dotnetPath) {
     Write-Host "✔ O .NET SDK está configurado no PATH: $dotnetPath" -ForegroundColor Green
 } else {
     Write-Host "❌ PATH dotnet(variaveis de ambiente) não existe, adicionando..." -ForegroundColor yellow
-    [System.Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\dotnet", [System.EnvironmentVariableTarget]::Machine)
-    Write-Host "✅ Adicionado PATH dotnet(variaveis de ambiente)" -ForegroundColor Green
-    Write-Host "✅ Execute novmaente como Administrador." -ForegroundColor Green
     exit 1
 }
 
@@ -79,6 +76,17 @@ if ($dockerRunning) {
     Write-Host "✅ Docker está ativo! Continuando..." -ForegroundColor Green
 } else {
     Write-Host "❌ Docker não está ativo. Certifique-se de que o Docker Desktop está aberto." -ForegroundColor Red
+    exit  1
+}
+
+# Verifica se o Docker Desktop está em execução
+$dockerProcess = Get-Process -Name "Docker Desktop" -ErrorAction SilentlyContinue
+
+if ($dockerProcess) {
+    Write-Host "✅ Docker Desktop já está rodando!"
+} else {
+    Write-Host "❌ Erro: Docker Desktop não está rodando! Inicie o Docker Desktop, e tente novamente." -ForegroundColor Red
+    exit 1
 }
 
 # Navega até o diretório do projeto
