@@ -9,14 +9,18 @@ __Requisitos:__
 
 - Docker Desktop - [Download](https://www.docker.com/products/docker-desktop)
 
-- ![Váriaveis do Sistema](/BancoDigitalAPI/images/Variaveis_sistema.png)
+- Variáveis do Sistema(__!important__): Estes 3 caminhos devem existir no PATH(variáveis do sistema).
+
+- ![Variaveis do Sistema](BancoDigitalAPI/Imagens/Variaveis_Sistema.png)
 
 ## Executando a aplicação:
 1. Inicie o Docker Desktop(no modo Administrador).
 2. Clone o repositório do projeto:  
 Url: https://github.com/leandromattos/BancoDigital
 3. Accesse a pasta onde projeto foi clonado.
-4. Execute o arquivo __start-docker.bat__ na pasta raiz da solução.    
+4. (Opcional) Execute o arquivo __start-variaveis-sistema.bat__ na pasta raiz da solução, ele irá checar se as variáveis do sistema estão criadas.
+*__Obs.:__* O processo não foi automatizado, pois os caminhos de instalação podem variar.
+6. Execute o arquivo __start-docker.bat__ na pasta raiz da solução.    
 ``./BancoDigital/start-docker.bat``  
 *__Obs.:__ Com isso o script irá configurar o ambiente, irá criar o container, banco de dados e executar a aplicação.  
 Caso API não esteja funcional, acesse o diretório do projeto através do powerShell e verifique o log através do comando: ``docker logs bancodigitalapi-banco-digital-api-1``.
