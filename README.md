@@ -9,6 +9,8 @@ __Requisitos:__
 
 - Docker Desktop - [Download](https://www.docker.com/products/docker-desktop)
 
+- ![Váriaveis do Sistema](/BancoDigitalAPI/images/Variaveis_sistema.png)
+
 ## Executando a aplicação:
 1. Inicie o Docker Desktop(no modo Administrador).
 2. Clone o repositório do projeto:  
