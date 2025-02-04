@@ -16,9 +16,9 @@ Url: https://github.com/leandromattos/BancoDigital
 3. Accesse a pasta onde projeto foi clonado.
 4. Execute o arquivo __start-docker.bat__ na pasta raiz da solução.    
 ``./BancoDigital/start-docker.bat``  
-*__Obs.:__ Com isso o script irá configurar o cenário, irá criar o container, banco de dados e executar a aplicação.  
+*__Obs.:__ Com isso o script irá configurar o ambiente, irá criar o container, banco de dados e executar a aplicação.  
 Caso API não esteja funcional, acesse o diretório do projeto através do powerShell e verifique o log através do comando: ``docker logs bancodigitalapi-banco-digital-api-1``.
-Provavelmente pode ser alguma variável de sistema não configurada.*
+Provavelmente pode ser alguma variável de sistema que o start-docker não conseguiu criar.*
 8. As credenciais de acesso, estão no arquivo __.env__ na raiz do projeto.
 7. [Clique aqui para acessar API](http://localhost:8080/swagger/index.html)
 
